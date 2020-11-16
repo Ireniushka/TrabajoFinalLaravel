@@ -14,8 +14,16 @@ class CreateWorksheetsTable extends Migration
     public function up()
     {
         Schema::create('worksheets', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->timestamps();
+            $table->date('date');
+            $table->string('description');
+            $table->unsignedInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('users');
+            $table->boolean('accepted')->default(false);
+            $table->boolean('deleted')->default(false);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

@@ -14,8 +14,15 @@ class CreateRasTable extends Migration
     public function up()
     {
         Schema::create('ras', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('number');
+            $table->text('description');
+            $table->unsignedInteger('module_id');
+            $table->foreign('module_id')->references('id')->on('modules');
+            $table->boolean('deleted')->default(false);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

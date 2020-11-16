@@ -14,8 +14,14 @@ class CreateCyclesTable extends Migration
     public function up()
     {
         Schema::create('cycles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->timestamps();
+            $table->string('name');
+            $table->string('grade');
+            $table->string('year');
+            $table->boolean('deleted')->default(false);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

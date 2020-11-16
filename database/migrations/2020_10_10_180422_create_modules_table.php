@@ -14,8 +14,14 @@ class CreateModulesTable extends Migration
     public function up()
     {
         Schema::create('modules', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->increments('id');
-            $table->timestamps();
+            $table->string('name');
+            $table->unsignedInteger('cycle_id');
+            $table->foreign('cycle_id')->references('id')->on('cycles');
+            $table->boolean('deleted')->default(false);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
