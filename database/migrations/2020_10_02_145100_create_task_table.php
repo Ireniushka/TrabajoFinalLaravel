@@ -17,7 +17,7 @@ class CreateTaskTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('number');
-            $table->string('description');
+            $table->string('description',500);
             $table->boolean('deleted')->default(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

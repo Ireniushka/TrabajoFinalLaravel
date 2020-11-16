@@ -17,7 +17,7 @@ class CreateCesTable extends Migration
             $table->engine="InnoDB";
             $table->increments('id');
             $table->char('word');
-            $table->text('description');
+            $table->string('description');
             $table->unsignedInteger('ra_id');
             $table->foreign('ra_id')->references('id')->on('ras');
             $table->unsignedInteger('task_id');
