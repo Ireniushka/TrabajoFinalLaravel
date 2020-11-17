@@ -10,7 +10,7 @@ class WorksheetController extends Controller
     public function index()
     {
         // $fichas=worksheet::where('deleted', 0)->paginate(7);
-        $fichasAlumno['fichasAlumno']=Worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(7);
+        $fichasAlumno['fichasAlumno']=Worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(5);
         
         return view('fichas.index', $fichasAlumno);
     }
@@ -72,7 +72,10 @@ class WorksheetController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $datosFicha = request()->except(['_token', '_method']);
+        Worksheet::where('id','=',$id)->update($datosFicha);
 
+        return redirect('fichas');
     }
 
     /**

@@ -1,12 +1,19 @@
-<form action="{{url('/fichas/'.$fichaAlumno->id)}}" method="post" enctype="multipart/form-data">
-{{csrf_field()}}
-{{ method_field('PATCH')}}
-    <label for="description">{{'Descripción'}}</label>
-    <input type="text" name="description" id="description" value="{{ $ficha->description}}">
-    </br>
+@extends('layouts.app')
 
-    <label for="date">{{'Fecha'}}</label>
-    <input type="date" name="date" id="date" value="{{ $ficha->date}}">  
+@section('content')
+<div class="container">
+    <form action="{{url('/fichas/'.$ficha->id)}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
+    {{ method_field('PATCH')}}
+        <label for="description">{{'Descripción'}}</label>
+        <input type="text" name="description" id="description" value="{{ $ficha->description}}">
+        </br>
 
-    <input type="submit" value="Editar">
-</form>
+        <label for="date">{{'Fecha'}}</label>
+        <input type="date" name="date" id="date" value="{{ $ficha->date}}">  
+        </br>
+
+        <input type="submit" value="Editar">
+    </form>
+</div>
+@endsection
