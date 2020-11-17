@@ -58,7 +58,9 @@ class WorksheetController extends Controller
      */
     public function edit($id)
     {
-        
+        $ficha = Worksheet::findOrFail($id);
+
+        return view('fichas.edit', compact('ficha'));
     }
 
     /**
@@ -81,7 +83,10 @@ class WorksheetController extends Controller
      */
     public function destroy($id)
     {
-        Worksheet::destroy($id);
+
+        $ficha = Worksheet::where('id', $id);
+        $ficha -> increment('deleted');
+        // Worksheet::destroy($id);
 
         return redirect('fichas');
     }
