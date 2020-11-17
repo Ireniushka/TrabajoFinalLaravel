@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cycle;
+use App\Users;
 
-class CycleController extends Controller
+class StudentController extends Controller
 {
     public function index()
     {
-        return view('ciclos.index');
+        
     }
 
     /**
@@ -19,7 +19,7 @@ class CycleController extends Controller
      */
     public function create()
     {
-        return view('ciclos.create');
+        
     }
 
     /**
@@ -53,7 +53,7 @@ class CycleController extends Controller
      */
     public function edit($id)
     {
-       return view('ciclos.edit');
+       
     }
 
     /**
