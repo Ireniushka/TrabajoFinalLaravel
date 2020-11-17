@@ -11,6 +11,12 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
+    public function fichas()
+    {
+        return $this->hasMany('App\Worksheet');
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *

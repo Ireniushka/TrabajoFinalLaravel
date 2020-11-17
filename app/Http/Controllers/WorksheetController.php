@@ -12,6 +12,7 @@ class WorksheetController extends Controller
         // $fichas=worksheet::where('deleted', 0)->paginate(7);
         $fichasAlumno['fichasAlumno']=Worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(5);
         
+
         return view('fichas.index', $fichasAlumno);
     }
 
