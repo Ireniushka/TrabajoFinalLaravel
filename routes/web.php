@@ -15,10 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('fichas', 'WorksheetController');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('ciclos', 'CycleController');
+
+Route::group(['middleware' => 'alum'], function () {
+    Route::resource('fichas', 'WorksheetController');
+   });
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::resource('fichas', 'WorksheetController');
+   });
+   

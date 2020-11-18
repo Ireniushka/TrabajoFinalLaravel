@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Worksheet;
 
 class WorksheetController extends Controller
 {
     public function index()
     {
-        $fichas['fichas']=worksheet::where('deleted', 0)->paginate(7);
-        $fichasAlumno['fichasAlumno']=Worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(5);
+        $fichas['fichas']=worksheet::where('deleted', 0)->with('alumno')->paginate(7);
+        $fichasAlumno['fichasAlumno']=Worksheet::where('deleted', 0)->where('student_id', auth()->id())->with('alumno')->paginate(5);
         
 
         return view('fichas.index', $fichasAlumno,$fichas);
@@ -34,6 +35,11 @@ class WorksheetController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate(request(), [
+                'date' => 'required|max:100',
+                'description' => 'required|max:500',
+            ]);
 
         Worksheet::insert(['date'=>request()->date, 'description'=>request()->description , 'student_id'=> auth()->id()]);
 

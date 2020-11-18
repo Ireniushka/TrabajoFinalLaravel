@@ -10,7 +10,7 @@ class Worksheet extends Model
 
     public function alumno()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class, 'student_id');
     }
 
     protected $fillable = [

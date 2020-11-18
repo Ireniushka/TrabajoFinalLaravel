@@ -8,7 +8,7 @@
                 <tr>
                     <th>Descripcion</th>
                     <th>Fecha</th>
-                    <th>Id estudiante</th>
+                    <th>Nombre estudiante</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{$ficha->description}}</td>
                     <td>{{$ficha->date}}</td>
-                    <td>{{$ficha->student_id}}</td>
+                    <td>{{$ficha->alumno->name}}</td>
                     <td>  
                         <a href="{{url('/fichas/'.$ficha->id.'/edit')}}" class="btn btn-warning">
                             Editar
@@ -36,7 +36,7 @@
             @endforeach
         </table>
         <p>{{$fichas->links()}}</p>
-        <a href="{{url('/fichas/create')}}"><button onclick="" class="btn btn-success">Crear</button></a>
+        <a href="{{url('/fichas/create')}}"><button class="btn btn-success">Crear Ficha</button></a>
     @endLoggedAdmin
     
     @LoggedAlum()
@@ -45,7 +45,7 @@
                 <tr>
                     <th>Descripcion</th>
                     <th>Fecha</th>
-                    <th>Id estudiante</th>
+                    <th>Nombre estudiante</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -55,7 +55,7 @@
                 <tr>
                     <td>{{$fichaAlumno->description}}</td>
                     <td>{{$fichaAlumno->date}}</td>
-                    <td>{{$fichaAlumno->student_id}}</td>
+                    <td>{{$fichaAlumno->alumno->name}}</td>
                     <td>  
                         <a href="{{url('/fichas/'.$fichaAlumno->id.'/edit')}}" class="btn btn-warning">
                             Editar
@@ -73,7 +73,7 @@
             @endforeach
         </table>
         <p>{{$fichasAlumno->links()}}</p>
-        <a href="{{url('/fichas/create')}}"><button onclick="" class="btn btn-success">Crear</button></a>
+        <a href="{{url('/fichas/create')}}"><button onclick="" class="btn btn-success">Crear Ficha</button></a>
     @endLoggedAlum
 </div>
 @endsection
