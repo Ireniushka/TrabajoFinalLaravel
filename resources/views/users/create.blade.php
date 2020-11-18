@@ -20,7 +20,8 @@
   }
   
 </style>
-
+@section('content')
+<div class="container">
     <h2> <strong>Nuevo Usuario </strong></h2>
     <form action="{{ url('/users')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -65,3 +66,4 @@
 
     
 </div>
+@endsection

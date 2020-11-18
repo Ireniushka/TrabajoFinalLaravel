@@ -28,7 +28,7 @@ Route::group(['middleware' => 'alum'], function () {
    });
 
 Route::group(['middleware' => 'admin'], function () {
-    Route::resource('fichas', 'WorksheetController');
+   
    });
 
 Route::resource('users', 'UserController');

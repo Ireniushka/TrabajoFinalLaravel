@@ -20,7 +20,8 @@
   }
   
 </style>
-
+@section('content')
+<div class="container">
     <h2> <strong>Nuevo Ciclo </strong></h2>
     <form action="{{ url('/ciclos')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -49,5 +50,6 @@
 
     
 </div>
+@endsection
 
 
