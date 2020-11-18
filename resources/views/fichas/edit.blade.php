@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+@LoggedAdminAlum()
     <form action="{{url('/fichas/'.$ficha->id)}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     {{ method_field('PATCH')}}
@@ -15,5 +16,6 @@
 
         <input type="submit" value="Editar">
     </form>
+@endLoggedAdminAlum
 </div>
 @endsection

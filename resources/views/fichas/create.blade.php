@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+@LoggedAdminAlum()
     <form action="{{ url('/fichas')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="description">{{'Descripción'}}</label>
@@ -14,5 +15,6 @@
 
         <input type="submit" value="Agregar"></input>
     </form>
+@endLoggedAdminAlum
 </div>
 @endsection
