@@ -1,1 +1,0 @@
-inicio(despliegue de datos)

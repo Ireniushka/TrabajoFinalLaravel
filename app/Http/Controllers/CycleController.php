@@ -30,7 +30,10 @@ class CycleController extends Controller
      */
     public function store(Request $request)
     {
+        
+    Cycle::insert(['name'=>request()->name, 'grade'=>request()->grade , 'year'=>request()->year]);
 
+    return redirect('ciclos');
        
     }
 
