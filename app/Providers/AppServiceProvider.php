@@ -19,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
             return auth()->check();
         });
 
+        \Blade::if('LoggedTute', function() {
+            return auth()->check() && auth()->user()->type == 'tut_e';
+        });
+
+        \Blade::if('LoggedAdminTute', function() {
+            return auth()->check() && (auth()->user()->type == 'ad' || auth()->user()->type == 'tut_e');
+        });
+
         \Blade::if('LoggedAlum', function() {
             return auth()->check() && auth()->user()->type == 'al';
         });

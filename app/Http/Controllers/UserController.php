@@ -9,7 +9,7 @@ class UserController extends User
 {
             public function index()
         {
-            $users['users']=user::where('deleted', 0)->with('alumno')->paginate(7);
+            $users['users']=user::where('deleted', 0)->paginate(7);
         
             
     
@@ -59,9 +59,30 @@ class UserController extends User
          */
         public function edit($id)
         {
-           return view('users.edit');
+            $user = User::findOrFail($id);
+
+            return view('users.edit', compact('user'));
         }
+        
+        // public function update(Request $request, $id)
+        // {
+        //     $datosUser = request()->except(['_token', '_method']);
+        //     User::where('id','=',$id)->update($datosUser);
     
+        //     return redirect('users');
+        // }
+
+        public static function destroy($id)
+    {
+
+        $user = User::where('id', $id);
+        $user -> increment('deleted');
+        
+
+        return redirect('users');
+    }
+
+
         /**
          * Update the specified resource in storage.
          *
