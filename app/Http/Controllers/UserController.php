@@ -72,7 +72,7 @@ class UserController extends User
             return redirect('users');
         }
 
-        public function destroy($id)
+        public static function destroy($id)
     {
 
         $user = User::where('id', $id);
