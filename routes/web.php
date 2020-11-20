@@ -23,15 +23,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('ciclos', 'CycleController');
 
-Route::resource('asistencia', 'AssistanceController');
+
 
 Route::group(['middleware' => 'alum'], function () {
     Route::resource('fichas', 'WorksheetController');
+    Route::resource('asistencia', 'AssistanceController');
    });
 
 Route::group(['middleware' => 'admin'], function () {
-   
+    Route::resource('users', 'UserController');
    });
 
-Route::resource('users', 'UserController');
+Route::group(['middleware' => 'tute'], function () {
+
+    });
+
+
    
