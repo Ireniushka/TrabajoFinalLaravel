@@ -22,6 +22,7 @@
 </style>
 @section('content')
 <div class="container">
+@LoggedAdmin()
     <h2> <strong>Nuevo Usuario </strong></h2>
     <form action="{{ url('/users')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -66,6 +67,6 @@
 
     <a href="{{url('/ciclos')}}"><button class="btn btn-primary">Volver</button></a>
 
-    
+    @endLoggedAdmin
 </div>
 @endsection
