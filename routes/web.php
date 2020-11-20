@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('ciclos', 'CycleController');
 
+Route::resource('asistencia', 'AssistanceController');
+
 Route::group(['middleware' => 'alum'], function () {
     Route::resource('fichas', 'WorksheetController');
    });
