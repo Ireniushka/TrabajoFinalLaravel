@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Task;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        return view('tasks.index');
+        $tasks['tasks']=Task::paginate(5);
+        return view('tasks.index',$tasks);
+        
     }
 
     /**
@@ -31,7 +34,7 @@ class TaskController extends Controller
     {
 
         $taskData=request()->except('_token');
-        Task::insert($taskData);
+        Task::insert(['number'=>request()->number,'description'=>request()->description]);
         return response()-> json($taskData);
         //return redirect('tasks');
     }
