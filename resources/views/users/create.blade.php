@@ -39,18 +39,20 @@
         </br>
         <label for="email_verified_at">{{'Confirma tu email'}}</label>
         <input type="text" name="email_verified_at" id="email_verified_at" value="" size=55>
+        </br> 
+        <label for="cycle_id">{{'ID del ciclo al que pertenece'}}</label>
+        <input type="cycle_id" name="cycle_id" id="cycle_id" value="" size=55>
         </br>
-        <label for="password">{{'Contraseña'}}</label>
-        <input type="password" name="password" id="password" value="" size=55>
+        <label for="enterprise_id">{{'ID dela empresa a la que pertenece'}}</label>
+        <input type="enterprise_id" name="enterprise_id" id="enterprise_id" value="" size=55>
         </br>
-        <div>
-            <label for="inputState">Tipo de Usuario</label>
-            <select id="inputState" class="form-control" style="width:200px">
-                <option selected>Alumno</option>
-                <option>Tutor educativo</option>
-                <option>Tutor docente</option>
-            </select>
-         </div>
+        <label for="type">Tipo de Usuario</label>
+          <select name="type" id="type" class="form-control" style="width:200px">
+              <option selected value="Al">Alumno</option>
+              <option value="Te">Tutor educativo</option>
+              <option value="Tc">Tutor docente</option>
+          </select>
+         
 
         <input type="submit" value="Agregar" class="boton_agregar"></input>
         </br>

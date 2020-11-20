@@ -9,7 +9,11 @@ class UserController extends User
 {
             public function index()
         {
-            return view('users.index');
+            $users['users']=user::where('deleted', 0)->with('alumno')->paginate(7);
+        
+            
+    
+            return view('users.index', $users);
         }
     
         /**
@@ -30,9 +34,9 @@ class UserController extends User
          */
         public function store(Request $request)
         {
-            User::insert(['name'=>request()->name, 'firstname'=>request()->firstname , 'phone'=>request()->phone, 'email'=>request()->email,'email_verified_at'=>request()->email_verified_at, 'password'=>request()->password]);
-            
-            return redirect('ciclos');
+            User::insert(['name'=>request()->name, 'firstname'=>request()->firstname , 'phone'=>request()->phone, 'email'=>request()->email,'email_verified_at'=>request()->email_verified_at, 'password'=>'$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'type'=>request()->type, 'enterprise_id'=>request()->enterprise_id, 'cycle_id'=>request()->cycle_id]);
+
+            return redirect('users');
            
         }
     
