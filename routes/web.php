@@ -39,4 +39,4 @@ Route::group(['middleware' => 'tute'], function () {
     });
 
 
-   
+   a;
