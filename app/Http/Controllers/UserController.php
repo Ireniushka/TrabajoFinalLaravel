@@ -9,7 +9,11 @@ class UserController extends User
 {
             public function index()
         {
-            return view('users.index');
+            $users['users']=user::where('deleted', 0)->with('alumno')->paginate(7);
+        
+            
+    
+            return view('users.index', $users);
         }
     
         /**
