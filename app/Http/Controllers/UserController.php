@@ -31,7 +31,7 @@ class UserController extends User
         public function store(Request $request)
         {
             User::insert(['name'=>request()->name, 'firstname'=>request()->firstname , 'phone'=>request()->phone, 'email'=>request()->email,'email_verified_at'=>request()->email_verified_at, 'password'=>request()->password]);
-
+            
             return redirect('ciclos');
            
         }
