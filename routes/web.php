@@ -23,8 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('ciclos', 'CycleController');
 
-c;
-
 Route::group(['middleware' => 'alum'], function () {
     Route::resource('fichas', 'WorksheetController');
     Route::resource('asistencia', 'AssistanceController');
@@ -40,6 +38,3 @@ Route::group(['middleware' => 'tute'], function () {
 Route::resource('users', 'UserController');
 Route::resource('tasks', 'TaskController');
 
-
-   a;
-   b;
