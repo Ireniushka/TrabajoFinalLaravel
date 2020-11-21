@@ -29,6 +29,7 @@
     <a class="boton_agregar" href="ciclos" role="button">Ciclos</a>
     <a class="boton_agregar" href="fichas" role="button">Fichas</a>
     <a class="boton_agregar" href="empresas" role="button">Empresasad</a>
+    <a class="boton_agregar" href="asistencia" role="button">Asistencia</a>
    
 
 
