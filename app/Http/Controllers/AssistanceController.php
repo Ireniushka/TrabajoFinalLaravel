@@ -34,6 +34,17 @@ class AssistanceController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'assistance1' => 'required|max:500',
+            'date1' => 'required|max:100',
+            'assistance2' => 'required|max:500',
+            'date2' => 'required|max:100',
+            'assistance3' => 'required|max:500',
+            'date3' => 'required|max:100',
+            
+        ]);
+
+
         Assistance::insert(['date'=>request()->date1, 'assistance'=>request()->assistance1 , 'student_id'=> auth()->id()]);
         Assistance::insert(['date'=>request()->date2, 'assistance'=>request()->assistance2 , 'student_id'=> auth()->id()]);
         Assistance::insert(['date'=>request()->date3, 'assistance'=>request()->assistance3 , 'student_id'=> auth()->id()]);

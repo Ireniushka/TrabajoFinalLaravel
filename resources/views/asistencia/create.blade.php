@@ -24,9 +24,9 @@
 <div class="container">
 @LoggedAdminAlum()
     <h2> <strong>Nueva hoja de asistencias</strong></h2>
-    <form action="{{ url('/assistance')}}" method="post" enctype="multipart/form-data">
-    <legend>Asistencia 1</legend>
-        {{csrf_field()}}
+    <form action="{{ url('/asistencia')}}" method="post" enctype="multipart/form-data">
+    {{csrf_field()}}
+        <h3>Asistencia 1</h3>
         <label for="assistance1">{{'Descripción'}}</label>
         <input type="text" name="assistance1" id="asistance1" value="" size=50>
         </br>
@@ -34,12 +34,9 @@
         <label for="date1">{{'Fecha'}}</label>
         <input type="date" name="date1" id="date1" value="">
         </br>
-    </form>
-    </br>
 
-    <form action="{{ url('/assistance')}}" method="post" enctype="multipart/form-data">
-    <legend>Asistencia 2</legend>
-        {{csrf_field()}}
+        </br>
+        <h3>Asistencia 2</h3>
         <label for="assistance2">{{'Descripción'}}</label>
         <input type="text" name="assistance2" id="assistance2" value="" size=50>
         </br>
@@ -47,12 +44,9 @@
         <label for="date2">{{'Fecha'}}</label>
         <input type="date" name="date2" id="date2" value="">
         </br>
-    </form>
-    </br>
 
-    <form action="{{ url('/assistance')}}" method="post" enctype="multipart/form-data">
-    <legend>Asistencia 3</legend>
-        {{csrf_field()}}
+        </br>
+        <h3>Asistencia 3</h3>
         <label for="assistance3">{{'Descripción'}}</label>
         <input type="text" name="assistance3" id="assistance3" value="" size=50>
         </br>
@@ -60,14 +54,15 @@
         <label for="date3">{{'Fecha'}}</label>
         <input type="date" name="date3" id="date3" value="">
         </br>
+        <input type="submit" value="Agregar" class="boton_agregar">
     </form>
 
     </br>
     </br>
     </br>
-    <a type="submit" value="Agregar" class="boton_agregar" action="{{ url('/assistance')}}" method="post" enctype="multipart/form-data">Agregar</a>
     <a href="{{url('/asistencia')}}"><button class="btn btn-primary">Volver</button></a>
     
 @endLoggedAdminAlum
 </div>
+@include('partials.errors')
 @endsection

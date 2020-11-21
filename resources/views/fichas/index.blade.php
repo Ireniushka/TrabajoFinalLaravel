@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     @LoggedAdmin()
+    <h1>Fichas de seguimiento</h1>
     <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
@@ -40,6 +41,7 @@
     @endLoggedAdmin
     
     @LoggedAlum()
+        <h1>Mis fichas de seguimiento</h1>
         <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>

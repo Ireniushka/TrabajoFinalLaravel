@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     @LoggedAdmin()
+    <h1>Fichas de Asistencia</h1>
     <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
@@ -40,6 +41,7 @@
     @endLoggedAdmin
     
     @LoggedAlum()
+        <h1>Mis Fichas de Asistencia</h1>
         <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
