@@ -20,6 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/homeAlum', 'HomeController@getAl')->name('homeAlum');
+Route::get('/homeAdmin', 'HomeController@getAd')->name('homeAdmin');
+Route::get('/homeTut', 'HomeController@getTut')->name('homeTut');
+
+/**Route::get('/homeTut', 'HomeTutController@index')->name('homeTut');
+Route::get('/homeAdmin', 'HomeAdController@index')->name('homeAdmin');
+Route::get('/homeAlum', 'HomeAlController@index')->name('homeAlum');*/
 
 
 
@@ -38,4 +45,5 @@ Route::group(['middleware' => 'tute'], function () {
     Route::resource('tasks', 'TaskController');
     });
 
+Route::resource('modules','ModuleController');
 

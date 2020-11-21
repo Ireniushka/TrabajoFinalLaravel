@@ -49,9 +49,9 @@
         </br>
         <label for="type">Tipo de Usuario</label>
           <select name="type" id="type" class="form-control" style="width:200px">
-              <option selected value="Al">Alumno</option>
-              <option value="Te">Tutor educativo</option>
-              <option value="Tc">Tutor docente</option>
+              <option selected value="al">Alumno</option>
+              <option value="tut_e">Tutor educativo</option>
+              <option value="tut_d">Tutor docente</option>
           </select>
          
 
