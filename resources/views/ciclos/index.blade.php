@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    @LoggedAdmin()
     <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
@@ -36,6 +35,5 @@
         </table>
         <p>{{$ciclos->links()}}</p>
         <a href="{{url('/ciclos/create')}}"><button class="btn btn-success">Crear ciclo</button></a>
-    @endLoggedAdmin
 </div>
 @endsection

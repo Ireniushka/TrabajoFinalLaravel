@@ -34,7 +34,12 @@ class CycleController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate(request(), [
+            'name' => 'required|max:100',
+            'grade' => 'required|max:255',
+            'year' => 'required|max:255',
+        ]);
+
     Cycle::insert(['name'=>request()->name, 'grade'=>request()->grade , 'year'=>request()->year]);
 
     return redirect('ciclos');

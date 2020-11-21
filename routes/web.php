@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('ciclos', 'CycleController');
+
 
 Route::group(['middleware' => 'alum'], function () {
     Route::resource('fichas', 'WorksheetController');
@@ -30,10 +30,11 @@ Route::group(['middleware' => 'alum'], function () {
 
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', 'UserController');
+    Route::resource('ciclos', 'CycleController');
    });
 
 Route::group(['middleware' => 'tute'], function () {
-
+    Route::resource('tasks', 'TaskController');
     });
-Route::resource('tasks', 'TaskController');
+
 
