@@ -44,7 +44,7 @@
         <label for="cycle_id">{{'ID del ciclo al que pertenece'}}</label>
         <input type="cycle_id" name="cycle_id" id="cycle_id" value="" size=55>
         </br>
-        <label for="enterprise_id">{{'ID dela empresa a la que pertenece'}}</label>
+        <label for="enterprise_id">{{'ID de la empresa a la que pertenece'}}</label>
         <input type="enterprise_id" name="enterprise_id" id="enterprise_id" value="" size=55>
         </br>
         <label for="type">Tipo de Usuario</label>

@@ -38,6 +38,7 @@ Route::group(['middleware' => 'alum'], function () {
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', 'UserController');
     Route::resource('ciclos', 'CycleController');
+    Route::resource('enterprises', 'EnterpriseController');
    });
 
 Route::group(['middleware' => 'tute'], function () {
