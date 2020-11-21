@@ -46,6 +46,8 @@ Route::group(['middleware' => 'tute'], function () {
     });
 
 Route::resource('modules','ModuleController');
+Route::resource('ces','CeController');
+
 
 Route::resource('ras','RaController');
 
