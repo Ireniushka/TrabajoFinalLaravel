@@ -24,35 +24,21 @@
 @section('content')
 <div class="container">
 @LoggedAdminAlum()
-    <h2> <strong>Editar Usuario </strong></h2>
-    <form action="{{url('/users/'.$user->id)}}" method="post" enctype="multipart/form-data">
+    <h2> <strong>Editar Ciclo </strong></h2>
+    <form action="{{url('/ciclos/'.$ciclo->id)}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     {{ method_field('PATCH')}}
-        <label for="name">{{'Nombre'}}</label>
-        <input type="text" name="name" id="name" value="{{ $user->name}}" size="50">
+        <label for="name">{{'Nombre del ciclo'}}</label>
+        <input type="text" name="name" id="name" value="{{ $ciclo->name}}" size="50">
         </br>
 
-        <label for="firstname">{{'Apellido'}}</label>
-        <input type="firstname" name="firstname" id="firstname" value="{{ $user->firstname}}">  
+        <label for="grade">{{'Grado'}}</label>
+        <input type="grade" name="grade" id="grade" value="{{ $ciclo->grade}}">  
         </br>
 
-        <label for="phone">{{'Teléfono'}}</label>
-        <input type="phone" name="phone" id="phone" value="{{ $user->phone}}">  
+        <label for="year">{{'Año'}}</label>
+        <input type="year" name="year" id="year" value="{{ $ciclo->year}}">  
         </br>
-
-        <label for="email">{{'Email'}}</label>
-        <input type="email" name="email" id="email" value="{{ $user->email}}">  
-        </br>
-
-        <label for="enterprise_id">{{'Empresa'}}</label>
-        <input type="enterprise_id" name="enterprise_id" id="enterprise_id" value="{{ $user->enterprise_id}}">  
-        </br>
-
-        <label for="cycle_id">{{'Ciclo'}}</label>
-        <input type="cycle_id" name="cycle_id" id="cycle_id" value="{{ $user->cycle_id}}">  
-        </br>
-
-        
 
         <input type="submit" value="Actualizar" class="boton_actualizar">
         </br>
@@ -60,7 +46,7 @@
     </br>
     </br>
     </br>
-    <a href="{{url('/users')}}"><button class="btn btn-primary">Volver</button></a>
+    <a href="{{url('/ciclos')}}"><button class="btn btn-primary">Volver</button></a>
 @endLoggedAdminAlum
 </div>
 @endsection
