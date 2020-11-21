@@ -42,8 +42,8 @@
         <label for="email">{{'Email'}}</label>
         <input type="email" name="email" id="email" value="{{ $user->email}}">  
         </br>
-        <label for="entreprise_id">{{'Empresa'}}</label>
-        <input type="entreprise_id" name="entreprise_id" id="entreprise_id" value="{{ $user->entreprise_id}}">  
+        <label for="enterprise_id">{{'Empresa'}}</label>
+        <input type="enterprise_id" name="enterprise_id" id="enterprise_id" value="{{ $user->enterprise_id}}">  
         </br>
         <label for="cycle_id">{{'Ciclo'}}</label>
         <input type="cycle_id" name="cycle_id" id="cycle_id" value="{{ $user->cycle_id}}">  
