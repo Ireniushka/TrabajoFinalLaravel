@@ -9,7 +9,11 @@ class CycleController extends Controller
 {
     public function index()
     {
-        return view('ciclos.index');
+        $ciclos['ciclos']=cycle::where('deleted', 0)->paginate(7);
+    
+        
+
+        return view('ciclos.index', $ciclos);
     }
 
     /**
@@ -56,7 +60,9 @@ class CycleController extends Controller
      */
     public function edit($id)
     {
-       return view('ciclos.edit');
+        $ciclo = Cycle::findOrFail($id);
+
+        return view('ciclos.edit', compact('ciclo'));
     }
 
     /**
@@ -68,7 +74,10 @@ class CycleController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        $datosCiclo = request()->except(['_token', '_method']);
+        Cycle::where('id','=',$id)->update($datosCiclo);
+
+        return redirect('ciclos');
     }
 
     /**
@@ -79,6 +88,10 @@ class CycleController extends Controller
      */
     public function destroy($id)
     {
+        $ciclo = Cycle::where('id', $id);
+        $ciclo -> increment('deleted');
+        
 
+        return redirect('ciclos');
     }
 }
