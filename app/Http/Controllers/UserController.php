@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class UserController extends User
+class UserController extends Controller
 {
             public function index()
         {
@@ -34,6 +34,16 @@ class UserController extends User
          */
         public function store(Request $request)
         {
+            $this->validate(request(), [
+                'name' => 'required|max:100',
+                'firstname' => 'required|max:255',
+                'phone' => 'required|max:255',
+                'email' => 'required|max:255',
+                'type' => 'required|max:255',
+                'enterprise_id' => 'required|max:255',
+                'cycle_id' => 'required|max:255',
+            ]);
+    
             User::insert(['name'=>request()->name, 'firstname'=>request()->firstname , 'phone'=>request()->phone, 'email'=>request()->email,'email_verified_at'=>request()->email_verified_at, 'password'=>'$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'type'=>request()->type, 'enterprise_id'=>request()->enterprise_id, 'cycle_id'=>request()->cycle_id]);
 
             return redirect('users');
@@ -64,13 +74,13 @@ class UserController extends User
             return view('users.edit', compact('user'));
         }
         
-        // public function update(Request $request, $id)
-        // {
-        //     $datosUser = request()->except(['_token', '_method']);
-        //     User::where('id','=',$id)->update($datosUser);
+         public function update(Request $request, $id)
+         {
+             $datosUser = request()->except(['_token', '_method']);
+             User::where('id','=',$id)->update($datosUser);
     
-        //     return redirect('users');
-        // }
+             return redirect('users');
+         }
 
         public static function destroy($id)
     {
