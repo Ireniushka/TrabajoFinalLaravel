@@ -42,8 +42,12 @@
         <label for="email">{{'Email'}}</label>
         <input type="email" name="email" id="email" value="{{ $user->email}}">  
         </br>
-        <label for="entreprise_id">{{'Empresa'}}</label>
-        <input type="entreprise_id" name="entreprise_id" id="entreprise_id" value="{{ $user->entreprise_id}}">  
+        </br>
+        <label for="email_verified_at">{{'Confirmar nuevo correo'}}</label>
+        <input type="email_verified_at" name="email_verified_at" id="email_verified_at" value="{{ $user->email_verified_at}}">  
+        </br>
+        <label for="enterprise_id">{{'Empresa'}}</label>
+        <input type="enterprise_id" name="enterprise_id" id="enterprise_id" value="{{ $user->enterprise_id}}">  
         </br>
         <label for="cycle_id">{{'Ciclo'}}</label>
         <input type="cycle_id" name="cycle_id" id="cycle_id" value="{{ $user->cycle_id}}">  
