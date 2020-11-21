@@ -11,4 +11,9 @@ class Assistance extends Model
     protected $fillable = [
         'student_id', 'date', 'assistance', 'accepted', 'deleted',
     ];
+
+    public function alumno()
+    {
+        return $this->belongsTo(User::class, 'student_id');
+    }
 }
