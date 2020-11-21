@@ -33,7 +33,8 @@ Route::group(['middleware' => 'admin'], function () {
    });
 
 Route::group(['middleware' => 'tute'], function () {
-
+    Route::resource('tasks', 'TaskController');
     });
-Route::resource('tasks', 'TaskController');
+
+Route::resource('modules','ModuleController');
 

@@ -25,14 +25,12 @@
 <div class="container">
 @LoggedAdminTute()
     <h2> <strong>Editar tarea </strong></h2>
-    <form action="{{url('/tasks/'.$task->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{url('/modules/'.$module->id)}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     {{ method_field('PATCH')}}
-        <label for="number">{{'number'}}</label>
-        <input type="text" name="number" id="number" value="{{$task->number}}" size=1>
+        <label for="name">{{'name'}}</label>
+        <input type="text" name="name" id="name" value="" size=100>
         </br>
-        <label for="description">{{'description'}}</label>
-        <input type="text" name="description" id="desc" value="{{$task->description}}" size=100>
 
         <input type="submit" value="Actualizar" class="boton_actualizar">
         </br>
