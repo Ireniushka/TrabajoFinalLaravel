@@ -18,6 +18,9 @@
   h2{
     font: oblique 100% cursive;
   }
+  label{
+      width: 100px;
+  }
   
 </style>
 
@@ -28,12 +31,12 @@
     <form action="{{url('/tasks/'.$task->id)}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     {{ method_field('PATCH')}}
-        <label for="number">{{'number'}}</label>
+        <label for="number">{{'Numero'}}</label>
         <input type="text" name="number" id="number" value="{{$task->number}}" size=1>
         </br>
-        <label for="description">{{'description'}}</label>
+        <label for="description">{{'Descripcion'}}</label>
         <input type="text" name="description" id="desc" value="{{$task->description}}" size=100>
-
+        </br>
         <input type="submit" value="Actualizar" class="boton_actualizar">
         </br>
     </form>

@@ -30,16 +30,16 @@
     <h2> <strong>Crear Resultado de Aprendizaje </strong></h2>
     <form action="{{ url('/ras') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <label for="number">{{ 'number' }}</label>
-        <input type="text" name="number" id="number" value="" size=100>
+        <label for="number">{{ 'Numero' }}</label>
+        <input type="text" name="number" id="number" value="" size=1>
         </br>
-        <label for="description">{{ 'description' }}</label>
+        <label for="description">{{ 'Descripcion' }}</label>
         <input type="text" name="description" id="description" value="" size=100>
         </br>
-        <label for="module_id">{{ 'module_id' }}</label>
-        <input type="text" name="module_id" id="module_id" value="" size=100>
+        <label for="module_id">{{ 'Id del modulo' }}</label>
+        <input type="text" name="module_id" id="module_id" value="" size=1>
         </br>
-        <input type="submit" value="Add">
+        <input type="submit" value="Add" class="boton_agregar">
     </form>
 </div>
 @endsection

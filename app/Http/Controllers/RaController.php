@@ -39,7 +39,6 @@ class RaController extends Controller
     {
         $raData=request()->except('_token');
         Ra::insert(['number'=>request()->number, 'description'=>request()->description, 'module_id'=>request()->module_id]);
-        return response()-> json($raData);
         return redirect('ras');
     }
 

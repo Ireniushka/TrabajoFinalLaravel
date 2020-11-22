@@ -27,14 +27,14 @@
 
 @section('content')
 <div class="container">
-    <h2> <strong>Crear Task </strong></h2>
+    <h2> <strong>Crear modulo </strong></h2>
     <form action="{{url('/modules')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
-        <label for="name">{{'name'}}</label>
-        <input type="text" name="name" id="name" value="" size=100>
+        <label for="name">{{'Nombre'}}</label>
+        <input type="text" name="name" id="name" value="" size=60>
         </br>
 
-        <input type="submit" value="Add">
+        <input type="submit" value="Add" class="boton_agregar">
     </form>
 </div>
 @endsection

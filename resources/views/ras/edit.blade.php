@@ -19,20 +19,24 @@
     h2 {
         font: oblique 100% cursive;
     }
+    label{
+      width: 100px;
+  }
 </style>
 
 @section('content')
 <div class="container">
     @LoggedAdminTute()
-        <h2> <strong>Editar RRA </strong></h2>
+        <h2> <strong>Editar Resultado de Aprendizaje</strong></h2>
         <form action="{{ url('/ras/'.$ra->id) }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
-            <label for="number">{{ 'number' }}</label>
+            <label for="number">{{ 'Numero' }}</label>
             <input type="number" name="number" id="number" value="" size=100>
             </br>
-            <label for="description">{{ 'description' }}</label>
+            <label for="description">{{ 'Descripcion' }}</label>
             <input type="text" name="description" id="description" value="" size=100>
+            </br>
             </br>
             <input type="submit" value="Actualizar" class="boton_actualizar">
             </br>

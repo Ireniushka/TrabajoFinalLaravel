@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
+<div class="container">
     @LoggedAdmin()
+    <h1>Modulos</h1>
         <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
@@ -23,7 +24,6 @@
                         <a href="{{url('/modules/'.$module->id.'/edit')}}" class="btn btn-warning">
                             Editar
                         </a>
-                        |
                         <form method="post" action="{{url('/modules/'.$module->id)}}" style="display:inline">
                             {{csrf_field() }}
                             {{ method_field('DELETE')}}
@@ -34,9 +34,11 @@
             </tbody>
             @endforeach
         </table>
+        <a href="{{url('/modules/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
         @endLoggedAdmin
 
         @LoggedTute()
+        <h1>Modulos</h1>
         <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
@@ -57,7 +59,6 @@
                         <a href="{{url('/modules/'.$moduleT->id.'/edit')}}" class="btn btn-warning">
                             Editar
                         </a>
-                        |
                         <form method="post" action="{{url('/modules/'.$moduleT->id)}}" style="display:inline">
                             {{csrf_field() }}
                             {{ method_field('DELETE')}}
@@ -68,6 +69,7 @@
             </tbody>
             @endforeach
         </table>
+        <a href="{{url('/modules/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
     @endLoggedTute
 </div>
 @endsection
