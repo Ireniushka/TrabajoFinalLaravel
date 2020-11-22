@@ -36,7 +36,8 @@
             </tbody>
             @endforeach
         </table>
-        <a href="{{url('/ras/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
+        <p>{{$ras->links()}}</p>
+        <a href="{{url('/ras/create')}}"><button onclick="" class="btn btn-success">Crear Ra</button></a>
         @endLoggedAdmin
 
         @LoggedTute()
@@ -65,12 +66,14 @@
                                     <a href="{{ url('/ras/'.$raT->id.'/edit') }}" class="btn btn-warning">
                                         Editar
                                     </a>
-                                    |
                                     <form method="post" action="{{ url('/ras/'.$raT->id) }}" style="display:inline">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button class="btn btn-danger">Borrar</button>
                                     </form>
+                                    <a href="{{ url('/ces/'.$raT->id) }}" class="btn btn-info">
+                                        Ver ces
+                                    </a>
                                 </td> 
                             </tr>
                         @endif
@@ -78,7 +81,8 @@
                 </tbody>
                 @endforeach
         </table>
-        <a href="{{url('/ras/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
+        <p>{{$ras->links()}}</p>
+        <a href="{{url('/ras/create')}}"><button onclick="" class="btn btn-success">Crear Ra</button></a>
     @endLoggedTute
 </div>
 @endsection

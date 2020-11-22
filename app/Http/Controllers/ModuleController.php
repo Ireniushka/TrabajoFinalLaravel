@@ -13,8 +13,8 @@ class ModuleController extends Controller
     {
 
         // $userCiclo['userCiclo']=User::where('cycle_id',)
-
-        $modules['modules']=Module::where('deleted', 0)->paginate(12);
+        
+        $modules['modules']=Module::where('deleted', 0)->paginate(10);
         // $Tutemodules['Tutemodules'] = Module::where('deleted', 0)->paginate(12);
         $Tutemodules['Tutemodules']=Module::where('deleted', 0)->where('cycle_id', auth()->user()->cycle_id)->paginate(12);
         return view('modules.index',$modules,$Tutemodules);
@@ -42,7 +42,6 @@ class ModuleController extends Controller
         $cicloId = auth()->user()->cycle_id;
         $moduleData=request()->except('_token');
         Module::insert(['name'=>request()->name, 'cycle_id'=>$cicloId]);
-        return response()-> json($moduleData);
         return redirect('modules');
     }
 

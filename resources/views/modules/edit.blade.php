@@ -32,7 +32,7 @@
     {{csrf_field()}}
     {{ method_field('PATCH')}}
         <label for="name">{{'Nombre'}}</label>
-        <input type="text" name="name" id="name" value="" size=100>
+        <input type="text" name="name" id="name" value="{{$module->name}}" size=100>
         </br>
         </br>
         <input type="submit" value="Actualizar" class="boton_actualizar">

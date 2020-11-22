@@ -32,10 +32,10 @@
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
             <label for="number">{{ 'Numero' }}</label>
-            <input type="number" name="number" id="number" value="" size=100>
+            <input type="number" name="number" id="number" value="{{$ra->number}}" size=100>
             </br>
             <label for="description">{{ 'Descripcion' }}</label>
-            <input type="text" name="description" id="description" value="" size=100>
+            <input type="text" name="description" id="description" value="{{$ra->description}}" size=100>
             </br>
             </br>
             <input type="submit" value="Actualizar" class="boton_actualizar">

@@ -12,15 +12,11 @@ class CeController extends Controller
 {
     public function index()
     {
-        $ces['ces']=Ce::where('deleted', 0)->paginate(12);
-
-        $ras['ras']=Ra::where('deleted', 0);
-
-        $ciclo= auth()->user()->cycle_id;
-        $modulo['modulo']= Module::where('cycle_id',$ciclo);
+        $ces['ces']=Ce::where('deleted', 0)->paginate(10);
 
 
-        return view('ces.index', compact('ces', 'ras', 'modulo'));
+
+        return view('ces.index',$ces);
         
     }
 
@@ -44,7 +40,6 @@ class CeController extends Controller
     {
         $ceData=request()->except('_token');
         Ce::insert(['word'=>request()->word, 'description'=>request()->description, 'ra_id'=>request()->ra_id, 'task_id'=>request()->task_id, 'mark'=>request()->mark]);
-        return response()-> json($ceData);
         return redirect('ces');
     }
 
@@ -56,7 +51,9 @@ class CeController extends Controller
      */
     public function show($id)
     {
-        //
+        $ras['ras']=Ra::where('deleted', 0)->where('id',$id)->paginate(12);
+        $ces['ces']=Ce::where('deleted', 0)->paginate(12);
+        return view('ces.show',$ras,$ces);
     }
 
     /**

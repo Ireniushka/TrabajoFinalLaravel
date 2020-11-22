@@ -12,25 +12,10 @@ class TaskController extends Controller
 {
     public function index()
     {   
-        $cicloId = auth()->user()->cycle_id;
-        $modulos['modulos'] = Module::where('cycle_id',$cicloId)->paginate(10);
-        // foreach($modulos as $m){
-        //     $raId['raId'] = Ra::where('module_id',$m->id);
-        //     foreach($raId as $ra){
-        //         $ces['ces'] = Ce::where('ra_id',$ra->id);
-        //         foreach($ces as $ce){
-        //             $Tutetasks['Tutetasks'] += Task::where('id',$ce->task_id);
-        //         }
-        //     }
-        // }
-        // $raId = Ra::where('module_id',$modulo);
-
-        $Tutetasks['Tutetasks'] = Task::where('id',Ce::where('ra_id',Ra::where('module_id',Module::where('cycle_id',$cicloId))));
         
-        $tasks['tasks']=Task::where('deleted', 0)->paginate(12);
+        $tasks['tasks']=Task::where('deleted', 0)->paginate(10);
         
-        // $Tutetasks['tasks']=Task::where('deleted', 0)->where()->paginate(12);
-        return view('tasks.index',$tasks,$Tutetasks);
+        return view('tasks.index',$tasks);
         
     }
 
@@ -55,8 +40,7 @@ class TaskController extends Controller
 
         $taskData=request()->except('_token');
         Task::insert(['number'=>request()->number,'description'=>request()->description]);
-        return response()-> json($taskData);
-        //return redirect('tasks');
+        return redirect('tasks');
     }
 
     /**
@@ -67,7 +51,8 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $taskT['taskT']=Task::where('deleted', 0)->where('id',$id)->paginate(12);
+        return view('tasks.show',$taskT);
     }
 
     /**

@@ -125,7 +125,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">To logOut</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -195,8 +195,6 @@
                             <div class="card">
                                 <h3 class="btn-success">Funciones Tutor Educativo</h3>
                                 <ul>
-                                    <li><a href="tasks" class="boton btn btn-success" >Tareas</a></li>
-                                    <li><a href="ces" class="boton btn btn-success">Ces</a></li>
                                     <li><a href="ras" class="boton btn btn-success">Ra</a></li>
                                     <li><a href="modules" class="boton btn btn-success">Modulos</a></li>
                                 </ul>

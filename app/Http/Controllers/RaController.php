@@ -11,7 +11,7 @@ class RaController extends Controller
 {
     public function index()
     {
-        $ras['ras']=Ra::where('deleted', 0)->paginate(12);
+        $ras['ras']=Ra::where('deleted', 0)->paginate(10);
 
         $ciclo= auth()->user()->cycle_id;
         $modulo['modulo']= Module::where('cycle_id',$ciclo)->paginate(12);

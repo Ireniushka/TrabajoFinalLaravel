@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    @LoggedAdmin()
-    <h1>Tareas</h1>
+        @LoggedTute()
+        <h1>Tareas</h1>
         <table class ="table table-light">
             <thead class="thead-ligth">
                 <tr>
@@ -15,7 +15,7 @@
             </thead>
 
             <tbody>
-            @foreach($tasks as $task)
+                @foreach($taskT as $task)
                 <tr>
                     <td>{{$task->id}}</td>
                     <td>{{$task->number}}</td>
@@ -34,8 +34,7 @@
             </tbody>
             @endforeach
         </table>
-        <p>{{$tasks->links()}}</p>
         <a href="{{url('/tasks/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
-        @endLoggedAdmin
+    @endLoggedTute
 </div>
 @endsection

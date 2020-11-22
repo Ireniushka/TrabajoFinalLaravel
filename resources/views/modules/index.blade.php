@@ -34,7 +34,8 @@
             </tbody>
             @endforeach
         </table>
-        <a href="{{url('/modules/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
+        <p>{{$modules->links()}}</p>
+        <a href="{{url('/modules/create')}}"><button onclick="" class="btn btn-success">Crear modulo</button></a>
         @endLoggedAdmin
 
         @LoggedTute()
@@ -69,7 +70,8 @@
             </tbody>
             @endforeach
         </table>
-        <a href="{{url('/modules/create')}}"><button onclick="" class="btn btn-success">Crear tarea</button></a>
+        <p>{{$modules->links()}}</p>
+        <a href="{{url('/modules/create')}}"><button onclick="" class="btn btn-success">Crear modulo</button></a>
     @endLoggedTute
 </div>
 @endsection
