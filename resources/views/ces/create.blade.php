@@ -27,17 +27,23 @@
 
 @section('content')
 <div class="container">
-    <h2> <strong>Crear Resultado de Aprendizaje </strong></h2>
-    <form action="{{ url('/ras') }}" method="post" enctype="multipart/form-data">
+    <h2> <strong>Crear Criterio de Evaluación </strong></h2>
+    <form action="{{ url('/ces') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <label for="number">{{ 'number' }}</label>
-        <input type="text" name="number" id="number" value="" size=100>
+        <label for="word">{{ 'word' }}</label>
+        <input type="text" name="word" id="word" value="" size=100>
         </br>
         <label for="description">{{ 'description' }}</label>
         <input type="text" name="description" id="description" value="" size=100>
         </br>
-        <label for="module_id">{{ 'module_id' }}</label>
-        <input type="text" name="module_id" id="module_id" value="" size=100>
+        <label for="ra_id">{{ 'ra_id' }}</label>
+        <input type="text" name="ra_id" id="ra_id" value="" size=100>
+        </br>
+        <label for="task_id">{{ 'task_id' }}</label>
+        <input type="text" name="task_id" id="task_id" value="" size=100>
+        </br>
+        <label for="mark">{{ 'mark' }}</label>
+        <input type="text" name="mark" id="mark" value="" size=100>
         </br>
         <input type="submit" value="Add">
     </form>

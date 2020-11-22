@@ -3,21 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Module;
+use App\Ce;
 use App\Ra;
+use App\Module;
+
 
 class CeController extends Controller
 {
     public function index()
     {
+        $ces['ces']=Ce::where('deleted', 0)->paginate(12);
 
-        // $userCiclo['userCiclo']=User::where('cycle_id',)
-        
-        $Tutemodules['Tutemodules']=Module::where('deleted', 0)->where('cycle_id', auth()->user()->cycle_id);
-        $Ras['Ras']=Ra::where('module_id',$Tutemodules);
-        dd($Tutemodules);
-        dd($Ras);
-        return view('ces.index',$Ras,$Tutemodules);
+        $ras['ras']=Ra::where('deleted', 0);
+
+        $ciclo= auth()->user()->cycle_id;
+        $modulo['modulo']= Module::where('cycle_id',$ciclo);
+
+
+        return view('ces.index', compact('ces', 'ras', 'modulo'));
         
     }
 
@@ -39,11 +42,10 @@ class CeController extends Controller
      */
     public function store(Request $request)
     {
-        $cicloId = auth()->user()->cycle_id;
-        $moduleData=request()->except('_token');
-        Module::insert(['name'=>request()->name, 'cycle_id'=>$cicloId]);
-        return response()-> json($moduleData);
-        return redirect('modules');
+        $ceData=request()->except('_token');
+        Ce::insert(['word'=>request()->word, 'description'=>request()->description, 'ra_id'=>request()->ra_id, 'task_id'=>request()->task_id, 'mark'=>request()->mark]);
+        return response()-> json($ceData);
+        return redirect('ces');
     }
 
     /**
@@ -65,9 +67,9 @@ class CeController extends Controller
      */
     public function edit($id)
     {
-        $module = Module::findOrFail($id);
+        $ce = Ce::findOrFail($id);
 
-        return view('ces.edit', compact('module'));
+        return view('ces.edit', compact('ce'));
     }
 
     /**
@@ -79,8 +81,8 @@ class CeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datosModule = request()->except(['_token', '_method']);
-        Module::where('id','=',$id)->update($datosModule);
+        $datosCe = request()->except(['_token', '_method']);
+        Ce::where('id','=',$id)->update($datosCe);
         return redirect('ces');
     }
 
@@ -92,8 +94,8 @@ class CeController extends Controller
      */
     public function destroy($id)
     {
-        $module = Module::where('id', $id);
-        $module -> increment('deleted');
+        $ce = Ce::where('id', $id);
+        $ce -> increment('deleted');
 
         return redirect('ces');
     }

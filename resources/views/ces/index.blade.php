@@ -7,27 +7,30 @@
             <thead class="thead-ligth">
                 <tr>
                     <th>Id</th>
-                    <th>Word</th>
-                    <th>Description</th>
-                    <th>ra_id</th>
-                    <th>task_id</th>
-                    <th>mark</th>
+                    <th>Palabra</th>
+                    <th>Descripcion</th>
+                    <th>Id RRA</th>
+                    <th>Id Tarea</th>
+                    <th>Marca</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody>
-            @foreach($Ras as $ra)
+            @foreach($ces as $ce)
                 <tr>
-                    <td>{{$ra->id}}</td>
-                    <td>{{$ra->name}}</td>
-                    <td>{{$ra->cycle_id}}</td>
+                    <td>{{ $ce->id }}</td>
+                    <td>{{ $ce->word }}</td>
+                    <td>{{ $ce->description }}</td>
+                    <td>{{ $ce->ra_id }}</td> 
+                    <td>{{ $ce->task_id }}</td>
+                    <td>{{ $ce->mark }}</td>
                     <td> 
-                        <a href="{{url('/modules/'.$ra->id.'/edit')}}" class="btn btn-warning">
+                        <a href="{{url('/ces/'.$ce->id.'/edit')}}" class="btn btn-warning">
                             Editar
                         </a>
                         |
-                        <form method="post" action="{{url('/modules/'.$ra->id)}}" style="display:inline">
+                        <form method="post" action="{{url('/ces/'.$ce->id)}}" style="display:inline">
                             {{csrf_field() }}
                             {{ method_field('DELETE')}}
                             <button class="btn btn-danger">Borrar</button>
@@ -44,35 +47,50 @@
             <thead class="thead-ligth">
                 <tr>
                     <th>Id</th>
-                    <th>Word</th>
-                    <th>Description</th>
-                    <th>ra_id</th>
-                    <th>task_id</th>
-                    <th>mark</th>
+                    <th>Palabra</th>
+                    <th>Descripcion</th>
+                    <th>Id RRA</th>
+                    <th>Id Tarea</th>
+                    <th>Marca</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody>
-            @foreach($Ras as $ra)
-                <tr>
-                    <td>{{$ra->id}}</td>
-                    <td>{{$ra->name}}</td>
-                    <td>{{$ra->cycle_id}}</td>
-                    <td> 
-                        <a href="{{url('/modules/'.$ra->id.'/edit')}}" class="btn btn-warning">
-                            Editar
-                        </a>
-                        |
-                        <form method="post" action="{{url('/modules/'.$ra->id)}}" style="display:inline">
-                            {{csrf_field() }}
-                            {{ method_field('DELETE')}}
-                            <button class="btn btn-danger">Borrar</button>
-                        </form>
-                    </td> 
-                </tr>
-            </tbody>
-            @endforeach
+                @foreach($modulo as $m)
+                    
+                    @foreach($ras as $ra)
+                    
+                        @if($m->id == $ra->module_id)
+                            @foreach($ces as $ce)
+                                @if($ra->id == $ce->ra_id)
+                                    <tr>
+                                        <td>{{ $ce->id }}</td>
+                                        <td>{{ $ce->word }}</td>
+                                        <td>{{ $ce->description }}</td>
+                                        <td>{{ $ce->ra_id }}</td>
+                                        <td>{{ $ce->task_id }}</td>
+                                        <td>{{ $ce->mark }}</td>
+                                        <td>
+                                            <a href="{{ url('/ces/'.$ce->id.'/edit') }}"
+                                                class="btn btn-warning">
+                                                Editar
+                                            </a>
+                                            |
+                                            <form method="post" action="{{ url('/ces/'.$ce->id) }}"
+                                                style="display:inline">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-danger">Borrar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                </tbody>
+                @endforeach
         </table>
     @endLoggedTute
 </div>

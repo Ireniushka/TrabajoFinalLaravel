@@ -28,9 +28,9 @@ class EnterpriseController extends Controller
             'email' => 'required|max:255',
         ]);
 
-    Enterprise::insert(['name'=>request()->name, 'email'=>request()->email]);
+        Enterprise::insert(['name'=>request()->name, 'email'=>request()->email]);
 
-    return redirect('enterprises');
+        return redirect('enterprises');
        
     }
 

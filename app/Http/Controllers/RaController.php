@@ -13,8 +13,10 @@ class RaController extends Controller
     {
         $ras['ras']=Ra::where('deleted', 0)->paginate(12);
 
-        $Tuteras['Tuteras']=Ra::where('deleted', 0)->where('module_id', auth()->user()->module_id)->paginate(12);
-        return view('ras.index',$ras,$Tuteras);
+        $ciclo= auth()->user()->cycle_id;
+        $modulo['modulo']= Module::where('cycle_id',$ciclo)->paginate(12);
+
+        return view('ras.index',$ras,$modulo);
     }
 
     /**
