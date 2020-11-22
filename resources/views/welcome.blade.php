@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -60,8 +61,57 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                
             }
+            
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /* Float four columns side by side */
+            .column {
+                float: left;
+                width: 33%;
+                padding: 0 10px;
+            }
+
+            li{
+                list-style-type:none;
+                position:relative;
+                width:120px;
+            }
+
+            /* Remove extra left and right margins, due to padding */
+            .row {margin: 0 -5px;}
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Responsive columns */
+            @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-top: 0;
+            }
+            }
+
+            /* Style the counter cards */
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                padding: 8px;
+                text-align: center;
+                background-color: #f1f1f1;
+            }
+
         </style>
     </head>
     <body>
@@ -78,10 +128,79 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md" >
                     Gestión Formación Dual
                 </div>
-                <img src="imagenes/cad.jpg">
+                @Logged()
+                    @LoggedAdmin()
+                    <div class="row flex-center">
+                        <div class="column">
+                            <div class="card">
+                                <h3 class="btn-warning">Funciones Admin</h3>
+                                <ul>
+                                        <li><a href="users" class="btn btn-warning" >Usuarios</a></li>
+                                        <li><a href="enterprises" class="btn btn-warning">Empresas</a></li>
+                                        <li><a href="ciclos" class="btn btn-warning">Ciclos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+                                <h3 class="btn-primary">Funciones Estudiante</h3>
+                                <ul>
+                                        <li><a href="fichas" class="btn btn-primary" >Fichas seguimiento</a></li>
+                                        <li><a href="asistencia" class="btn btn-primary">Fichas asistencia</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="column">
+                            <div class="card">
+                            <h3 class="btn-success">Funciones Tutor Educativo</h3>
+                                <ul>
+                                    <li><a href="tasks" class="btn btn-success" >Tareas</a></li>
+                                    <li><a href="ces" class="btn btn-success">Ces</a></li>
+                                    <li><a href="ras" class="btn btn-success">Ra</a></li>
+                                    <li><a href="modules" class="btn btn-success">Modulos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @endLoggedAdmin
+
+                    @LoggedAlum()
+                    <div class="row flex-center">
+                        <div class="column">
+                            <div class="card">
+                                <h3 class="btn-primary">Funciones Estudiante</h3>
+                                <ul>
+                                    <li><a href="fichas" class="btn btn-primary" >Fichas seguimiento</a></li>
+                                    <li><a href="asistencia" class="btn btn-primary">Fichas asistencia</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @endLoggedAlum
+
+                    @LoggedTute()
+                    <div class="row flex-center">
+                        <div class="column">
+                            <div class="card">
+                                <h3 class="btn-success">Funciones Tutor Educativo</h3>
+                                <ul>
+                                    <li><a href="tasks" class="btn btn-success" >Tareas</a></li>
+                                    <li><a href="ces" class="btn btn-success">Ces</a></li>
+                                    <li><a href="ras" class="btn btn-success">Ra</a></li>
+                                    <li><a href="modules" class="btn btn-success">Modulos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @endLoggedTute
+                @else
+                    @include('partials.login_link', ['message' => __("Inicia Sesion para Ver las funciones de tu usuario")])
+                @endLogged
             </div>
         </div>
     </body>
