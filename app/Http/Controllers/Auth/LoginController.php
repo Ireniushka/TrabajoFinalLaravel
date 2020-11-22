@@ -40,13 +40,13 @@ class LoginController extends Controller
     public function redirectPath()
     {
         if(auth()->user()->type==='al'){
-            return '/homeAlum';
+            return '/';
         }
         elseif (auth()->user()->type==='ad') {
-            return '/homeAdmin';
+            return '/';
         }
         elseif (auth()->user()->type==='tut_d' || auth()->user()->type==='tut_e') {
-            return '/homeTut';
+            return '/';
         }
     }
 }
