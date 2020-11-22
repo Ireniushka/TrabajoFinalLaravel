@@ -27,16 +27,16 @@
 
 @section('content')
 <div class="container">
-    <h2> <strong>Crear Task </strong></h2>
+    <h2> <strong>Crear tarea</strong></h2>
     <form action="{{url('/tasks')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
-        <label for="number">{{'number'}}</label>
+        <label for="number">{{'Numero'}}</label>
         <input type="text" name="number" id="number" value="" size=1>
         </br>
-        <label for="description">{{'description'}}</label>
+        <label for="description">{{'Descripcion'}}</label>
         <input type="text" name="description" id="desc" value="" size=100>
-
-        <input type="submit" value="Add">
+        </br>
+        <input type="submit" value="Add" class="boton_agregar ">
     </form>
 </div>
 @endsection

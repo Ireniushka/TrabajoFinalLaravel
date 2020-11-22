@@ -21,7 +21,6 @@
                 height: 100vh;
                 margin: 0;
             }
-
             .full-height {
                 height: 100vh;
             }
@@ -59,6 +58,11 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
+            .boton{
+                width:150px;
+                margin-top:3px;
+                margin-left:15px; 
+            }
 
             .m-b-md {
                 
@@ -83,6 +87,8 @@
                 list-style-type:none;
                 position:relative;
                 width:120px;
+                margin-left:5px;
+                margin-right:40px;
             }
 
             /* Remove extra left and right margins, due to padding */
@@ -138,9 +144,9 @@
                             <div class="card">
                                 <h3 class="btn-warning">Funciones Admin</h3>
                                 <ul>
-                                        <li><a href="users" class="btn btn-warning" >Usuarios</a></li>
-                                        <li><a href="enterprises" class="btn btn-warning">Empresas</a></li>
-                                        <li><a href="ciclos" class="btn btn-warning">Ciclos</a></li>
+                                    <li><a href="users" class="boton btn btn-warning" >Usuarios</a></li>
+                                    <li><a href="enterprises" class=" boton btn btn-warning">Empresas</a></li>
+                                    <li><a href="ciclos" class="boton btn btn-warning">Ciclos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -149,8 +155,8 @@
                             <div class="card">
                                 <h3 class="btn-primary">Funciones Estudiante</h3>
                                 <ul>
-                                        <li><a href="fichas" class="btn btn-primary" >Fichas seguimiento</a></li>
-                                        <li><a href="asistencia" class="btn btn-primary">Fichas asistencia</a></li>
+                                        <li><a href="fichas" class="boton btn btn-primary" >Fichas seguimiento</a></li>
+                                        <li><a href="asistencia" class="boton btn btn-primary">Fichas asistencia</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -159,10 +165,10 @@
                             <div class="card">
                             <h3 class="btn-success">Funciones Tutor Educativo</h3>
                                 <ul>
-                                    <li><a href="tasks" class="btn btn-success" >Tareas</a></li>
-                                    <li><a href="ces" class="btn btn-success">Ces</a></li>
-                                    <li><a href="ras" class="btn btn-success">Ra</a></li>
-                                    <li><a href="modules" class="btn btn-success">Modulos</a></li>
+                                    <li><a href="tasks" class="boton btn btn-success" >Tareas</a></li>
+                                    <li><a href="ces" class="boton btn btn-success">Ces</a></li>
+                                    <li><a href="ras" class="boton btn btn-success">Ra</a></li>
+                                    <li><a href="modules" class="boton btn btn-success">Modulos</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -175,8 +181,8 @@
                             <div class="card">
                                 <h3 class="btn-primary">Funciones Estudiante</h3>
                                 <ul>
-                                    <li><a href="fichas" class="btn btn-primary" >Fichas seguimiento</a></li>
-                                    <li><a href="asistencia" class="btn btn-primary">Fichas asistencia</a></li>
+                                    <li><a href="fichas" class="boton btn btn-primary" >Fichas seguimiento</a></li>
+                                    <li><a href="asistencia" class="boton btn btn-primary">Fichas asistencia</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -189,10 +195,10 @@
                             <div class="card">
                                 <h3 class="btn-success">Funciones Tutor Educativo</h3>
                                 <ul>
-                                    <li><a href="tasks" class="btn btn-success" >Tareas</a></li>
-                                    <li><a href="ces" class="btn btn-success">Ces</a></li>
-                                    <li><a href="ras" class="btn btn-success">Ra</a></li>
-                                    <li><a href="modules" class="btn btn-success">Modulos</a></li>
+                                    <li><a href="tasks" class="boton btn btn-success" >Tareas</a></li>
+                                    <li><a href="ces" class="boton btn btn-success">Ces</a></li>
+                                    <li><a href="ras" class="boton btn btn-success">Ra</a></li>
+                                    <li><a href="modules" class="boton btn btn-success">Modulos</a></li>
                                 </ul>
                             </div>
                         </div>
